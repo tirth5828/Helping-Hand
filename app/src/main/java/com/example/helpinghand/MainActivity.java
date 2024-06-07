@@ -48,7 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void Panic (View view) {
         getLastLocation();
-        sendSMSMessage();
+        try{
+            sendSMSMessage();
+        }
+        catch (Exception e){
+            Toast.makeText(getApplicationContext(), "Please Add Contacts",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     protected void sendSMSMessage() {

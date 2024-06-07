@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.helpinghand.Signup"
     android:orientation="vertical"
-    android:background="@drawable/background02">
+    android:background="@drawable/background03">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,14 +18,14 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Name"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.23000002" />
+            app:layout_constraintVertical_bias="0.3000002" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -43,16 +43,16 @@
                 android:layout_height="wrap_content"
                 android:text="Male"
                 android:textSize="25dp"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white" />
+                android:textColorHint="@color/black"
+                android:textColor="@color/black" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Female"
                 android:textSize="25dp"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white" />
+                android:textColorHint="@color/black"
+                android:textColor="@color/black" />
         </RadioGroup>
 
         <EditText
@@ -63,8 +63,8 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Email"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -79,8 +79,8 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="Password"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:textSize="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,6 +94,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:text="Register"
+            app:backgroundTint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/password" />
@@ -102,16 +103,16 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome to Helpinghand!!"
+            android:text="Welcome to Guardian Angel!!"
             android:textStyle="bold"
             android:textSize="25dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.51" />
+            app:layout_constraintVertical_bias="0.61" />
 
 
 

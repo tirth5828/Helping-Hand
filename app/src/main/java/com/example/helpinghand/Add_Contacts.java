@@ -3,6 +3,7 @@ package com.example.helpinghand;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -28,8 +29,8 @@ import java.util.ArrayList;
 
 public class Add_Contacts extends AppCompatActivity {
 
-    public static ArrayList contacts_numbers = new ArrayList(3);
-    public static ArrayList contacts_names = new ArrayList(3);
+    public static ArrayList<String> contacts_numbers = new ArrayList<>(3);
+    public static ArrayList<String> contacts_names = new ArrayList<>(3);
 
 
     private static final String TAG = Add_Contacts.class.getSimpleName();
@@ -41,12 +42,50 @@ public class Add_Contacts extends AppCompatActivity {
     TextView contact_name_1,contact_name_2,contact_name_3;
     TextView contact_number_1,contact_number_2,contact_number_3;
 
+
+    private SharedPreferences sharedPreferences;
+    private static final String PREF_NAME = "contacts_pref";
+    private static final String NAME_KEY_1 = "contact_name_1";
+    private static final String NAME_KEY_2 = "contact_name_2";
+    private static final String NAME_KEY_3 = "contact_name_3";
+    private static final String NUMBER_KEY_1 = "contact_number_1";
+    private static final String NUMBER_KEY_2 = "contact_number_2";
+    private static final String NUMBER_KEY_3 = "contact_number_3";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //context = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contacts);
 
+
+        contact_name_1 = findViewById(R.id.editText_PersonName1);
+        contact_name_2 = findViewById(R.id.editText_PersonName2);
+        contact_name_3 = findViewById(R.id.editText_PersonName3);
+        contact_number_1 = findViewById(R.id.editText_Phone1);
+        contact_number_2 = findViewById(R.id.editText_Phone2);
+        contact_number_3 = findViewById(R.id.editText_Phone3);
+
+        sharedPreferences = getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+
+        // Retrieve saved contacts
+        contact_name_1.setText(sharedPreferences.getString(NAME_KEY_1, ""));
+        contact_name_2.setText(sharedPreferences.getString(NAME_KEY_2, ""));
+        contact_name_3.setText(sharedPreferences.getString(NAME_KEY_3, ""));
+        contact_number_1.setText(sharedPreferences.getString(NUMBER_KEY_1, ""));
+        contact_number_2.setText(sharedPreferences.getString(NUMBER_KEY_2, ""));
+        contact_number_3.setText(sharedPreferences.getString(NUMBER_KEY_3, ""));
+
+
+        contacts_numbers.clear();
+        contacts_names.clear();
+        contacts_names.add((String) contact_name_1.getText());
+        contacts_names.add((String) contact_name_2.getText());
+        contacts_names.add((String) contact_name_3.getText());
+
+        contacts_numbers.add((String)contact_number_1.getText());
+        contacts_numbers.add((String)contact_number_2.getText());
+        contacts_numbers.add((String)contact_number_3.getText());
     }
 
     public void Add_Contact_1(View view) {
@@ -229,6 +268,16 @@ public class Add_Contacts extends AppCompatActivity {
         contacts_numbers.add((String)contact_number_1.getText());
         contacts_numbers.add((String)contact_number_2.getText());
         contacts_numbers.add((String)contact_number_3.getText());
+
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(NAME_KEY_1, contacts_names.get(0));
+        editor.putString(NAME_KEY_2, contacts_names.get(1));
+        editor.putString(NAME_KEY_3, contacts_names.get(2));
+        editor.putString(NUMBER_KEY_1, contacts_numbers.get(0));
+        editor.putString(NUMBER_KEY_2, contacts_numbers.get(1));
+        editor.putString(NUMBER_KEY_3, contacts_numbers.get(2));
+        editor.apply();
 
 
         startActivity(new Intent(getApplicationContext(),MainActivity.class));
